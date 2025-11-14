@@ -1,0 +1,89 @@
+{
+    "difficulty classes": {
+        "watch_actions": {
+            "piloting": {
+                "ashlands": 18,
+                "avernian_hills": 12,
+                "avernian_mountains": 15,
+                "bone_brambles": 30,
+                "caustic_bogs": 14,
+                "cracked_wastelands": 16,
+                "plains_of_fire": 14,
+                "volcanic_plains": 13,
+                "wastelands": 12
+            },
+            "navigating": {
+                "ashlands": 12,
+                "avernian_hills": 14,
+                "avernian_mountains": 16,
+                "bone_brambles": 18,
+                "caustic_bogs": 15,
+                "cracked_wastelands": 16,
+                "plains_of_fire": 14,
+                "volcanic_plains": 12,
+                "wastelands": 12
+            },
+            "forraging": {
+                "ashlands": 24,
+                "avernian_hills": 18,
+                "avernian_mountains": 22,
+                "bone_brambles": 16,
+                "caustic_bogs": 20,
+                "cracked_wastelands": 20,
+                "plains_of_fire": 24,
+                "volcanic_plains": 24,
+                "wastelands": 20
+            }
+        }
+    },
+    "oppressive_conditions": {
+        "1": {
+            "name": "Extreme Heat",
+            "description": "Temperatures reach extreme heat. A creature exposed to extreme heat must succeed on a Constitution saving throw at the end of each hour or gain one level of exhaustion. The DC is 5 for the first hour and increases by 1 for each additional hour. Creatures wearing medium or heavy armor, or clad in heavy clothing, have disadvantage on the saving throw. Creatures with resistance or immunity to fire damage automatically succeed on the saving throw, as do creatures native to Avernus. A successful saving throw while resting resets the DC to 5."
+        },
+        "2": {
+            "name": "Extreme Heat",
+            "description": "Temperatures reach extreme heat. A creature exposed to extreme heat must succeed on a Constitution saving throw at the end of each hour or gain one level of exhaustion. The DC is 5 for the first hour and increases by 1 for each additional hour. Creatures wearing medium or heavy armor, or clad in heavy clothing, have disadvantage on the saving throw. Creatures with resistance or immunity to fire damage automatically succeed on the saving throw, as do creatures native to Avernus. A successful saving throw while resting resets the DC to 5."
+        },
+        "3": {
+            "name": "Extreme Heat",
+            "description": "Temperatures reach extreme heat. A creature exposed to extreme heat must succeed on a Constitution saving throw at the end of each hour or gain one level of exhaustion. The DC is 5 for the first hour and increases by 1 for each additional hour. Creatures wearing medium or heavy armor, or clad in heavy clothing, have disadvantage on the saving throw. Creatures with resistance or immunity to fire damage automatically succeed on the saving throw, as do creatures native to Avernus. A successful saving throw while resting resets the DC to 5."
+        },
+        "4": {
+            "name": "Choking Miasma",
+            "description": "Thick, noxious fumes fill the air. They may have a source (like volcanic clouds rolling off the mountains) or they may seem to rise from the ground or even just spontaneously emerge from the air itself. At the end of each watch, creatures must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion. Creatures who are resting gain advantage on the saving throw. Creatures with resistance or immunity to poison automatically succeed on the saving throw, as do creatures native to Avernus."
+        },
+        "5": {
+            "name": "Choking Miasma",
+            "description": "Thick, noxious fumes fill the air. They may have a source (like volcanic clouds rolling off the mountains) or they may seem to rise from the ground or even just spontaneously emerge from the air itself. At the end of each watch, creatures must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion. Creatures who are resting gain advantage on the saving throw. Creatures with resistance or immunity to poison automatically succeed on the saving throw, as do creatures native to Avernus."
+        },
+        "6": {
+            "name": "Choking Miasma",
+            "description": "Thick, noxious fumes fill the air. They may have a source (like volcanic clouds rolling off the mountains) or they may seem to rise from the ground or even just spontaneously emerge from the air itself. At the end of each watch, creatures must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion. Creatures who are resting gain advantage on the saving throw. Creatures with resistance or immunity to poison automatically succeed on the saving throw, as do creatures native to Avernus."
+        },
+        "7": {
+            "name": "Psychic Evil",
+            "description": "The supernatural evil of the Nine Hells weighs on the bodies and souls of those who are not evil. A non-evil creature must make a DC 15 Constitution saving throw at the end of each watch or suffer 1d3 points of psychic damage."
+        },
+        "8": {
+            "name": "Psychic Evil",
+            "description": "The supernatural evil of the Nine Hells weighs on the bodies and souls of those who are not evil. A non-evil creature must make a DC 15 Constitution saving throw at the end of each watch or suffer 1d3 points of psychic damage."
+        },
+        "9": {
+            "name": "Psychic Evil",
+            "description": "The supernatural evil of the Nine Hells weighs on the bodies and souls of those who are not evil. A non-evil creature must make a DC 15 Constitution saving throw at the end of each watch or suffer 1d3 points of psychic damage."
+        },
+        "10": {
+            "name": "Acid Rain",
+            "description": "Thick purple clouds spatter the plains with burning acid. A creature without shelter suffers 1d6 acid damage per hour."
+        },
+        "11": {
+            "name": "Rain of Stones",
+            "description": "Small meteors pelt the plane. Creatures without shelter must succeed on a DC 12 Constitution saving throw each watch or suffer 1d6 bludgeoning damage per hour."
+        },
+        "12": {
+            "name": "Meteor Storm",
+            "description": "A storm of blazing meteors breaks out, releasing blazing orbs of fire plummeting from the sky. Creatures without shelter must succeed on a DC 15 saving throw or suffer 5d6 fire damage and 5d6 bludgeoning damage."
+        }
+    }
+}

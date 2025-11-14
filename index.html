@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Watch Generator</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<h1>Watch Generator</h1>
+	<div class="main-layout">
+		<section id="controls">
+			<div class="dice-group">
+				<label>Piloting: <input id="pilotingInput" type="number" min="1" max="20" placeholder="d20" /></label>
+				<button data-roll="piloting">Roll</button>
+			</div>
+			<div class="dice-group">
+				<label>Navigating: <input id="navigatingInput" type="number" min="1" max="20" placeholder="d20" /></label>
+				<button data-roll="navigating">Roll</button>
+			</div>
+			<div class="dice-group">
+				<label>Forraging: <input id="forragingInput" type="number" min="1" max="20" placeholder="d20" /></label>
+			<button data-roll="forraging">Roll</button>
+		</div>
+	<div class="actions">
+		<button id="rollAll">Roll All</button>
+		<button id="generateGrid">Generate Watch</button>
+		<button id="updateGrid">Update Grid</button>
+	</div>
+	<p id="status" class="status"></p>
+	</section>
+	<section id="terrainsGrid" class="terrains-grid"></section>
+	<aside id="oppressivePanel" class="oppressive-panel"></aside>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
