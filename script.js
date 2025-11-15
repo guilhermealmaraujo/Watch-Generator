@@ -17,6 +17,7 @@ const inputs = {
 let dcs = null;
 let terrainKeys = [];
 let oppressiveConditions = null;
+let terrainOppressiveConditions = null;
 
 // Image filename mapping (now direct as all filenames match keys)
 function terrainImageName(key){
@@ -33,6 +34,7 @@ async function loadConfig(){
     // Use terrain_grid_order from config if available, otherwise fallback to Object.keys
     terrainKeys = dcs.terrain_grid_order || Object.keys(base.piloting);
     oppressiveConditions = dcs.oppressive_conditions;
+    terrainOppressiveConditions = dcs.terrain_opressive_conditions;
     generateBtn.disabled = false;
     // Show sample to confirm load
     statusEl.textContent = 'Config loaded (piloting ashlands DC '+ base.piloting.ashlands + ').';
@@ -138,6 +140,43 @@ function renderTerrainCell(key, isSelected){
   terrainEl.appendChild(title);
   terrainEl.appendChild(img);
   terrainEl.appendChild(checksWrap);
+  
+  // Add oppressive condition if watching fails
+  if(showComparisons && terrainOppressiveConditions){
+    const watchingStat = actions.watching[key];
+    const watchingRoll = rolls.watching;
+    const watchingFails = watchingRoll < watchingStat;
+    
+    if(watchingFails){
+      const conditionsList = terrainOppressiveConditions[key];
+      if(conditionsList && conditionsList.length > 0){
+        // Randomly select one condition from the array
+        const randomIndex = Math.floor(Math.random() * conditionsList.length);
+        const condition = conditionsList[randomIndex];
+        
+        const oppressiveEl = document.createElement('div');
+        oppressiveEl.className = 'terrain-oppressive';
+        
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'oppressive-toggle';
+        toggleBtn.textContent = '⚠ ' + condition.name;
+        
+        const descEl = document.createElement('div');
+        descEl.className = 'oppressive-desc hidden';
+        descEl.textContent = condition.description;
+        
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          descEl.classList.toggle('hidden');
+          toggleBtn.classList.toggle('active');
+        });
+        
+        oppressiveEl.appendChild(toggleBtn);
+        oppressiveEl.appendChild(descEl);
+        terrainEl.appendChild(oppressiveEl);
+      }
+    }
+  }
   
   // Click handler to move between grids
   terrainEl.addEventListener('click', () => {

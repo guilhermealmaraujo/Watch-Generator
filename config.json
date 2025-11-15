@@ -107,5 +107,65 @@
         "cracked_wastelands",
         "ashlands",
         "plains_of_fire"
-    ]
+    ],
+    "terrain_opressive_conditions": {
+        "wastelands": [
+            {
+                "name": "Scree",
+                "description": "Traveling characters must make a DC 12 Dexterity saving throw each watch or suffer 1d3 damage. A character failing the saving throw must immediately attempt another, repeating until they succeed on a check or choose to stop traveling (in which case their distance traveled for the watch is halved)."
+            }
+        ],
+        "avernian_mountains": [
+            {
+                "name": "Tremor",
+                "description": "Avernus in general is tectonically unstable and this effect is magnified along the mountain crests. This condition indicates a tremor significant enough to disrupt travel, imposing a x ¾ speed modifier for the current watch.  1 in 10 such tremors are more serious, triggering significant hazards like an avalanche, rockslide, cave collapse, or the like."
+            }
+        ],
+        "bone_brambles": [
+            {
+                "name": "White Mists",
+                "description": "The brambles exude a thick, cloying, almost oily white mist. This creates a condition of poor visibility (halving moving speeds and giving disadvantage on navigation and forage checks). The mist is almost refreshingly cool by Avernian standards, but there are strange whispers and disturbing groans that come and go among the mists."
+            }
+        ],
+        "avernian_hills": [
+            {
+                "name": "Scree",
+                "description": "Traveling characters must make a DC 12 Dexterity saving throw each watch or suffer 1d3 damage. A character failing the saving throw must immediately attempt another, repeating until they succeed on a check or choose to stop traveling (in which case their distance traveled for the watch is halved)."
+            }
+        ],
+        "caustic_bogs": [
+            {
+                "name": "Caustic Pollution",
+                "description": "Characters must succeed on a DC 15 Constitution saving throw or suffer 1d3 acid damage."
+            }
+        ],
+        "volcanic_plains": [
+            {
+                "name": "Sudden Eruption",
+                "description": "This might be modeled by requiring the PCs to flee the hex within a certain timeframe."
+            },
+            {
+                "name": "Choking Miasma",
+                "description": "More serious outbreaks of volcanic gas are also possible; resolve as a cloudkill"
+            }
+        ],
+        "cracked_wastelands": [
+            {
+                "name": "Scree",
+                "description": "Traveling characters must make a DC 12 Dexterity saving throw each watch or suffer 1d3 damage. A character failing the saving throw must immediately attempt another, repeating until they succeed on a check or choose to stop traveling (in which case their distance traveled for the watch is halved)."
+            }
+        ],
+        "ashlands": [
+            {
+                "name": "Ash Pits",
+                "description": "In some areas the thin layer of ash is much deeper than it appears. Sentinels can attempt a DC 18 Wisdom (Perception) check to spot the ash pit as the expedition approaches. If no one spots the ash pit, 1d4 random characters in the expedition must make a DC 15 Dexterity saving throw or abruptly sink 2d4 feet deep in the ash."
+            }
+        ],
+        "plains_of_fire": [
+            {
+                "name": "Sudden Flame",
+                "description": "Spontaneous bursts of flame erupt from the ground without warning. At the start of each watch, each character must make a DC 15 Dexterity saving throw or take 2d6 fire damage."
+            }
+        ]
+    }
 }
