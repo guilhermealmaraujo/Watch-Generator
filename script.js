@@ -1,13 +1,17 @@
 const terrainsGridEl = document.getElementById('terrainsGrid');
+const selectedGridEl = document.getElementById('selectedGrid');
 const statusEl = document.getElementById('status');
 const rollAllBtn = document.getElementById('rollAll');
 const generateBtn = document.getElementById('generateGrid');
 generateBtn.disabled = true; // disabled until config (or fallback) is ready
 
+let selectedTerrains = [];
+
 const inputs = {
   piloting: document.getElementById('pilotingInput'),
   navigating: document.getElementById('navigatingInput'),
-  forraging: document.getElementById('forragingInput')
+  forraging: document.getElementById('forragingInput'),
+  watching: document.getElementById('watchingInput')
 };
 
 let dcs = null;
@@ -26,7 +30,8 @@ async function loadConfig(){
     if(!res.ok) throw new Error('HTTP '+res.status);
     dcs = await res.json();
     const base = dcs['difficulty classes'].watch_actions;
-    terrainKeys = Object.keys(base.piloting);
+    // Use terrain_grid_order from config if available, otherwise fallback to Object.keys
+    terrainKeys = dcs.terrain_grid_order || Object.keys(base.piloting);
     oppressiveConditions = dcs.oppressive_conditions;
     generateBtn.disabled = false;
     // Show sample to confirm load
@@ -55,75 +60,126 @@ function getRolls(){
   return {
     piloting: parseInt(inputs.piloting.value, 10) || rollDieAssign('piloting'),
     navigating: parseInt(inputs.navigating.value, 10) || rollDieAssign('navigating'),
-    forraging: parseInt(inputs.forraging.value, 10) || rollDieAssign('forraging')
+    forraging: parseInt(inputs.forraging.value, 10) || rollDieAssign('forraging'),
+    watching: parseInt(inputs.watching.value, 10) || rollDieAssign('watching')
   };
 }
 
+function hasRolls(){
+  return Object.keys(inputs).some(stat => inputs[stat].value !== '');
+}
+
 function rollDieAssign(stat){ const v = rollDie(); inputs[stat].value = v; flash(inputs[stat]); return v; }
+
+function renderTerrainCell(key, isSelected){
+  const showComparisons = hasRolls();
+  const rolls = showComparisons ? getRolls() : {};
+  const actions = dcs['difficulty classes'].watch_actions;
+  
+  const terrainEl = document.createElement('div');
+  terrainEl.className = 'terrain';
+  terrainEl.dataset.terrainKey = key;
+  
+  const title = document.createElement('div');
+  title.className = 'terrain-title';
+  title.textContent = key.replace(/_/g,' ');
+  
+  const img = document.createElement('img');
+  img.alt = key;
+  img.src = 'terrains/' + terrainImageName(key);
+  
+  const checksWrap = document.createElement('div');
+  checksWrap.className = 'checks';
+  
+  ['piloting','navigating','forraging','watching'].forEach(stat => {
+    const dc = actions[stat][key];
+    const checkEl = document.createElement('div');
+    checkEl.className = 'check';
+    
+    const actionIcon = document.createElement('img');
+    actionIcon.className = 'action-icon';
+    actionIcon.src = 'icons/' + stat + '.svg';
+    actionIcon.alt = stat;
+    const fullLabel = (stat === 'forraging') ? 'Forraging' : (stat.charAt(0).toUpperCase() + stat.slice(1));
+    actionIcon.setAttribute('data-label', fullLabel);
+    
+    const dcEl = document.createElement('div');
+    dcEl.className = 'dc';
+    dcEl.textContent = 'DC: ' + dc;
+    
+    checkEl.appendChild(actionIcon);
+    checkEl.appendChild(dcEl);
+    
+    if(showComparisons){
+      const roll = rolls[stat];
+      const pass = roll >= dc;
+      checkEl.classList.add(pass ? 'pass' : 'fail');
+      
+      const icon = document.createElement('img');
+      icon.src = pass ? 'icons/check.svg' : 'icons/cross.svg';
+      icon.alt = pass ? 'pass' : 'fail';
+      
+      const resultLabel = document.createElement('div');
+      resultLabel.className = 'result-label ' + (pass ? 'result-pass' : 'result-fail');
+      resultLabel.textContent = pass ? 'Success' : 'Fail';
+      
+      const rollVal = document.createElement('div');
+      rollVal.className = 'roll-value';
+      rollVal.textContent = 'Roll: ' + roll;
+      
+      checkEl.insertBefore(icon, actionIcon);
+      checkEl.insertBefore(resultLabel, dcEl);
+      checkEl.insertBefore(rollVal, dcEl);
+    }
+    
+    checksWrap.appendChild(checkEl);
+  });
+  
+  terrainEl.appendChild(title);
+  terrainEl.appendChild(img);
+  terrainEl.appendChild(checksWrap);
+  
+  // Click handler to move between grids
+  terrainEl.addEventListener('click', () => {
+    if(isSelected){
+      // Move back to available
+      selectedTerrains = selectedTerrains.filter(t => t !== key);
+    } else {
+      // Move to selected
+      selectedTerrains.push(key);
+    }
+    updateTerrainGrid();
+  });
+  
+  terrainEl.style.cursor = 'pointer';
+  
+  return terrainEl;
+}
 
 function updateTerrainGrid(){
   if(!dcs){
     statusEl.textContent = 'Config not loaded.';
     return;
   }
-  const rolls = getRolls();
-  const actions = dcs['difficulty classes'].watch_actions;
+  const showComparisons = hasRolls();
+  
+  selectedGridEl.innerHTML = '';
   terrainsGridEl.innerHTML = '';
 
-  terrainKeys.forEach(key => {
-    const terrainEl = document.createElement('div');
-    terrainEl.className = 'terrain';
-
-    const title = document.createElement('div');
-    title.className = 'terrain-title';
-    title.textContent = key.replace(/_/g,' ');
-
-    const img = document.createElement('img');
-    img.alt = key;
-    img.src = 'terrains/' + terrainImageName(key);
-
-    const checksWrap = document.createElement('div');
-    checksWrap.className = 'checks';
-
-    ['piloting','navigating','forraging'].forEach(stat => {
-      const dc = actions[stat][key];
-      const roll = rolls[stat];
-      const pass = roll >= dc;
-      const checkEl = document.createElement('div');
-      checkEl.className = 'check ' + (pass ? 'pass' : 'fail');
-
-      const icon = document.createElement('img');
-      icon.src = pass ? 'icons/check.svg' : 'icons/cross.svg';
-      icon.alt = pass ? 'pass' : 'fail';
-      // Action icon replacing text label
-      const actionIcon = document.createElement('img');
-      actionIcon.className = 'action-icon';
-      actionIcon.src = 'icons/' + stat + '.svg';
-      actionIcon.alt = stat;
-      const fullLabel = (stat === 'forraging') ? 'Forraging' : (stat.charAt(0).toUpperCase() + stat.slice(1));
-      actionIcon.setAttribute('data-label', fullLabel);
-
-      const rollVal = document.createElement('div');
-      rollVal.className = 'roll-value';
-      rollVal.textContent = 'Roll: ' + roll;
-
-      const dcEl = document.createElement('div');
-      dcEl.className = 'dc';
-      dcEl.textContent = 'DC: ' + dc;
-
-      checkEl.appendChild(icon);
-      checkEl.appendChild(actionIcon);
-      checkEl.appendChild(rollVal);
-      checkEl.appendChild(dcEl);
-      checksWrap.appendChild(checkEl);
-    });
-
-    terrainEl.appendChild(title);
-    terrainEl.appendChild(img);
-    terrainEl.appendChild(checksWrap);
-    terrainsGridEl.appendChild(terrainEl);
+  // Render selected terrains
+  selectedTerrains.forEach(key => {
+    const terrainEl = renderTerrainCell(key, true);
+    selectedGridEl.appendChild(terrainEl);
   });
-  statusEl.textContent = 'Grid updated with current rolls.';
+  
+  // Render available terrains (not selected)
+  terrainKeys.forEach(key => {
+    if(!selectedTerrains.includes(key)){
+      const terrainEl = renderTerrainCell(key, false);
+      terrainsGridEl.appendChild(terrainEl);
+    }
+  });
+  statusEl.textContent = showComparisons ? 'Grid updated with current rolls.' : 'Grid displayed (no rolls yet).';
 }
 
 function buildGrid(){
@@ -188,4 +244,6 @@ document.querySelectorAll('button[data-roll]').forEach(btn => {
 });
 
 // Initial load
-loadConfig();
+loadConfig().then(() => {
+  if(dcs) updateTerrainGrid();
+});

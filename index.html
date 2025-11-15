@@ -21,6 +21,10 @@
 				<label>Forraging: <input id="forragingInput" type="number" min="1" max="20" placeholder="d20" /></label>
 			<button data-roll="forraging">Roll</button>
 		</div>
+		<div class="dice-group">
+			<label>Watching: <input id="watchingInput" type="number" min="1" max="20" placeholder="d20" /></label>
+			<button data-roll="watching">Roll</button>
+		</div>
 	<div class="actions">
 		<button id="rollAll">Roll All</button>
 		<button id="generateGrid">Generate Watch</button>
@@ -28,8 +32,19 @@
 	</div>
 	<p id="status" class="status"></p>
 	</section>
-	<section id="terrainsGrid" class="terrains-grid"></section>
+	<div class="content-wrapper">
+	<div class="grids-container">
+		<section class="selected-section">
+			<h2 class="grid-heading">Selected Terrains</h2>
+			<div id="selectedGrid" class="terrains-grid selected-grid"></div>
+		</section>
+		<section class="available-section">
+			<h2 class="grid-heading">Available Terrains</h2>
+			<div id="terrainsGrid" class="terrains-grid"></div>
+		</section>
+	</div>
 	<aside id="oppressivePanel" class="oppressive-panel"></aside>
+	</div>
 	</div>
 	<script src="script.js"></script>
 </body>

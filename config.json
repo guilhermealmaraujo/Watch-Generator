@@ -33,6 +33,17 @@
                 "plains_of_fire": 24,
                 "volcanic_plains": 24,
                 "wastelands": 20
+            },
+            "watching": {
+                "ashlands": 18,
+                "avernian_hills": 12,
+                "avernian_mountains": 12,
+                "bone_brambles": 15,
+                "caustic_bogs": 15,
+                "cracked_wastelands": 15,
+                "plains_of_fire": 18,
+                "volcanic_plains": 18,
+                "wastelands": 12
             }
         }
     },
@@ -85,5 +96,16 @@
             "name": "Meteor Storm",
             "description": "A storm of blazing meteors breaks out, releasing blazing orbs of fire plummeting from the sky. Creatures without shelter must succeed on a DC 15 saving throw or suffer 5d6 fire damage and 5d6 bludgeoning damage."
         }
-    }
+    },
+    "terrain_grid_order": [
+        "wastelands",
+        "avernian_mountains",
+        "bone_brambles",
+        "avernian_hills",
+        "caustic_bogs",
+        "volcanic_plains",
+        "cracked_wastelands",
+        "ashlands",
+        "plains_of_fire"
+    ]
 }
