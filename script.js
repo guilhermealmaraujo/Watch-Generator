@@ -18,6 +18,7 @@ let dcs = null;
 let terrainKeys = [];
 let oppressiveConditions = null;
 let terrainOppressiveConditions = null;
+let terrainVelocity = null;
 
 // Image filename mapping (now direct as all filenames match keys)
 function terrainImageName(key){
@@ -35,6 +36,7 @@ async function loadConfig(){
     terrainKeys = dcs.terrain_grid_order || Object.keys(base.piloting);
     oppressiveConditions = dcs.oppressive_conditions;
     terrainOppressiveConditions = dcs.terrain_opressive_conditions;
+    terrainVelocity = dcs.terrain_speed;
     generateBtn.disabled = false;
     // Show sample to confirm load
     statusEl.textContent = 'Config loaded (piloting ashlands DC '+ base.piloting.ashlands + ').';
@@ -139,6 +141,31 @@ function renderTerrainCell(key, isSelected){
   
   terrainEl.appendChild(title);
   terrainEl.appendChild(img);
+  
+  // Add velocity information
+  if(terrainVelocity && terrainVelocity[key]){
+    const velocityEl = document.createElement('div');
+    velocityEl.className = 'terrain-velocity';
+    
+    const velocityToggle = document.createElement('button');
+    velocityToggle.className = 'velocity-toggle';
+    velocityToggle.textContent = '🚶 Velocidade';
+    
+    const velocityDesc = document.createElement('div');
+    velocityDesc.className = 'velocity-desc hidden';
+    velocityDesc.innerHTML = terrainVelocity[key];
+    
+    velocityToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      velocityDesc.classList.toggle('hidden');
+      velocityToggle.classList.toggle('active');
+    });
+    
+    velocityEl.appendChild(velocityToggle);
+    velocityEl.appendChild(velocityDesc);
+    terrainEl.appendChild(velocityEl);
+  }
+  
   terrainEl.appendChild(checksWrap);
   
   // Add oppressive condition if watching fails
@@ -163,7 +190,7 @@ function renderTerrainCell(key, isSelected){
         
         const descEl = document.createElement('div');
         descEl.className = 'oppressive-desc hidden';
-        descEl.textContent = condition.description;
+        descEl.innerHTML = condition.description;
         
         toggleBtn.addEventListener('click', (e) => {
           e.stopPropagation();

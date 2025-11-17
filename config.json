@@ -111,32 +111,32 @@
     "terrain_opressive_conditions": {
         "wastelands": [
             {
-                "name": "Scree",
-                "description": "Traveling characters must make a DC 12 Dexterity saving throw each watch or suffer 1d3 damage. A character failing the saving throw must immediately attempt another, repeating until they succeed on a check or choose to stop traveling (in which case their distance traveled for the watch is halved)."
+                "name": "Cascalho Instável",
+                "description": "<p>As terras devastadas de Avernus parecem areia, mas são formadas por fragmentos afiados de quartzo averniano e obsidiana, criando um solo traiçoeiro e irregular.</p><p><strong>A pé:</strong> Cada personagem precisa fazer um <strong>Teste de Salvamento de Destreza CD 12</strong> a cada vigília. Ao falhar, sofre <strong>1d4 de dano por hex percorrido</strong> deste terreno na vigília corrente.</p><p><strong>Em veículo:</strong> Os pedregulhos soltos fazem as rodas perderem tração. Se o condutor falhar no <strong>teste de pilotagem</strong> na vigília, o terreno se torna <strong>terreno difícil</strong> para o veículo durante aquela vigília (cada hex conta como 2).</p>"
             }
         ],
         "avernian_mountains": [
             {
                 "name": "Tremor",
-                "description": "Avernus in general is tectonically unstable and this effect is magnified along the mountain crests. This condition indicates a tremor significant enough to disrupt travel, imposing a x ¾ speed modifier for the current watch.  1 in 10 such tremors are more serious, triggering significant hazards like an avalanche, rockslide, cave collapse, or the like."
+                "description": "<p>As montanhas de Avernus variam entre picos jovens de obsidiana afiada e maciços antigos já erodidos. Ambas sofrem constantes tremores devido à instabilidade tectônica do plano.</p><p><strong>A pé:</strong> Cada personagem deve fazer um <strong>Teste de Salvamento de Destreza CD 12</strong>. Ao falhar, o personagem perde o equilíbrio, rola montanha abaixo, sofre <strong>3d6 de dano de contusão</strong> e fica <strong>caído</strong>.</p><p><strong>Em veículo:</strong> O veículo começa a capotar. Consulte o mishap <strong>“Flip”</strong> na tabela de mishaps.</p><p>Além disso, existe <strong>10% de chance</strong> de ocorrer uma avalanche de detritos. Qualquer criatura no caminho deve fazer um <strong>Teste de Salvamento de Destreza CD 15</strong>; caso esteja dentro de um veículo, deve fazer um <strong>Teste de Pilotagem CD 15</strong>. Falha: sofre <strong>10d10 de dano</strong>. Sucesso: sofre <strong>metade do dano</strong>.</p>"
             }
         ],
         "bone_brambles": [
             {
                 "name": "White Mists",
-                "description": "The brambles exude a thick, cloying, almost oily white mist. This creates a condition of poor visibility (halving moving speeds and giving disadvantage on navigation and forage checks). The mist is almost refreshingly cool by Avernian standards, but there are strange whispers and disturbing groans that come and go among the mists."
+                "description": "<p>Entre árvores retorcidas e cipós ósseos, corpos calcificados se mesclam ao terreno enquanto fungos sugam a umidade sanguinolenta do solo. Esses matagais costumam surgir próximos a água, envoltos por uma névoa branca densa e oleosa.</p><p><strong>A pé ou em veículo:</strong> Rerole os testes de <strong>Navegação</strong> e <strong>Forragem</strong>. Se o novo resultado for menor, use-o para determinar os resultados das ações na vigília corrente.</p>"
             }
         ],
         "avernian_hills": [
             {
-                "name": "Scree",
-                "description": "Traveling characters must make a DC 12 Dexterity saving throw each watch or suffer 1d3 damage. A character failing the saving throw must immediately attempt another, repeating until they succeed on a check or choose to stop traveling (in which case their distance traveled for the watch is halved)."
+                "name": "Cascalho Instável",
+                "description": "<p>Colinas de Avernus surgem como montes irregulares ou afloramentos de rochas afiadas que se projetam rumo ao céu vermelho-sangue. A pouca vida nativa do plano costuma se agarrar e se concentrar nessas elevações.</p><p><strong>A pé:</strong> Cada personagem precisa fazer um <strong>Teste de Salvamento de Destreza CD 15</strong> a cada vigília. Ao falhar, sofre <strong>1d4 de dano por hex percorrido</strong> deste terreno na vigília corrente.</p><p><strong>Em veículo:</strong> Os pedregulhos soltos fazem as rodas perderem tração. Se o condutor falhar no <strong>teste de pilotagem</strong> na vigília, o terreno se torna <strong>terreno difícil</strong> para o veículo durante aquela vigília (cada hex conta como 3).</p>"
             }
         ],
         "caustic_bogs": [
             {
                 "name": "Caustic Pollution",
-                "description": "Characters must succeed on a DC 15 Constitution saving throw or suffer 1d3 acid damage."
+                "description": "<p>Pântanos ácidos formados por escoamento tóxico e por restos corroídos da Guerra de Sangue. A água fervilhante e os vapores corrosivos tornam a área perigosamente envenenada.</p><p><strong>A pé ou em veículo:</strong> Criaturas que entrarem neste terreno ficam <strong>Poisoned</strong>. Além disso, devem fazer um <strong>Teste de Salvamento de Constituição CD 15</strong> ou adquirem <strong>1 ponto</strong> de exaustão.</p>"
             }
         ],
         "volcanic_plains": [
@@ -167,5 +167,16 @@
                 "description": "Spontaneous bursts of flame erupt from the ground without warning. At the start of each watch, each character must make a DC 15 Dexterity saving throw or take 2d6 fire damage."
             }
         ]
+    },
+    "terrain_speed": {
+        "wastelands": "<p>Normal</p>",
+        "avernian_mountains": "<p>Cada hex de terreno consome <strong>3 hex </strong> de velocidade</p>",
+        "bone_brambles": "<p>A pé cada hex de terreno consome <strong>2 hex</strong> de velocidade. Quando em veiculo cada hex de terrano consome <strong>12 hex</strong> de velocidade</p>",
+        "avernian_hills": "<p>Cada hex de terreno consome <strong>2 hex </strong> de velocidade</p>",
+        "caustic_bogs": "<p>Cada hex de terreno consome <strong>2 hex </strong> de velocidade</p>",
+        "volcanic_plains": "<p>Cada hex de terreno consome <strong>2 hex </strong> de velocidade</p>",
+        "cracked_wastelands": "<p>Cada hex de terreno consome <strong>2 hex </strong> de velocidade</p>",
+        "ashlands": "<p>Cada hex de terreno consome <strong>2 hex </strong> de velocidade</p>",
+        "plains_of_fire": "<p>Cada hex de terreno consome <strong>2 hex </strong> de velocidade</p>"
     }
 }
