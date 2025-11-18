@@ -141,30 +141,30 @@
         ],
         "volcanic_plains": [
             {
-                "name": "Sudden Eruption",
-                "description": "This might be modeled by requiring the PCs to flee the hex within a certain timeframe."
+                "name": "Erupção de Lava Súbita",
+                "description": "<p><strong>Erupção de Lava Súbita:</strong> O solo treme e se rompe, lançando jatos de lava incandescente em todas as direções.</p><p><strong>A pé:</strong> Todas as criaturas devem fazer um <strong>Teste de Salvamento de Destreza CD 15</strong>. Em caso de falha, sofrem <strong>5d6 de dano de fogo</strong>; em caso de sucesso, sofrem <strong>metade do dano</strong>.</p><p><strong>Em veículo:</strong> Apenas criaturas posicionadas do lado de fora do veículo sofrem o dano da erupção (ver <strong>A pé</strong>). Além disso, se o piloto tiver falhado no <strong>teste de pilotagem</strong> nesta vigília, o veículo adquire <strong>1 ponto de exaustão</strong>.</p>"
             },
             {
-                "name": "Choking Miasma",
-                "description": "More serious outbreaks of volcanic gas are also possible; resolve as a cloudkill"
+                "name": "Jatos de Gas Sulfuroso",
+                "description": "<p>Fendas do terreno vulcânico liberam subitamente jatos intensos de gás sulfuroso.</p><p><strong>A pé:</strong> As criaturas são atingidas diretamente pelos jatos e sofrem <strong>4d4 de dano ácido</strong>. Além disso, toda criatura exposta deve realizar um <strong>Teste de Salvamento de Constituição CD 20</strong> ou ganha <strong>1 ponto de exaustão</strong>.</p><p><strong>Em um veículo:</strong> Criaturas dentro do veículo não sofrem o dano dos jatos, mas ainda ficam expostas ao gás infiltrado e devem fazer um <strong>Teste de Salvamento de Constituição CD 15</strong> ou ganham <strong>1 ponto de exaustão</strong>.</p>"
             }
         ],
         "cracked_wastelands": [
             {
-                "name": "Scree",
-                "description": "Traveling characters must make a DC 12 Dexterity saving throw each watch or suffer 1d3 damage. A character failing the saving throw must immediately attempt another, repeating until they succeed on a check or choose to stop traveling (in which case their distance traveled for the watch is halved)."
+                "name": "Fendas Traiçoeiras",
+                "description": "<p><strong>Beiradas Instáveis:</strong> O solo rachado deste terreno cede sem aviso, fazendo criaturas e veículos despencarem pelas fendas profundas.</p><p><strong>A pé:</strong> Criaturas devem realizar um <strong>Teste de Salvamento de Destreza CD 15</strong>. Em caso de falha, sofrem <strong>5d6 de dano de corte/contusão</strong>; em caso de sucesso, sofrem <strong>metade do dano</strong>.</p><p><strong>Em veículo:</strong> O veículo também sofre esse dano se o <strong>teste de pilotagem da vigília</strong> estiver falho. Há ainda <strong>10% de chance</strong> de o veículo ficar <strong>preso permanentemente</strong> entre as rachaduras.</p>"
             }
         ],
         "ashlands": [
             {
-                "name": "Ash Pits",
-                "description": "In some areas the thin layer of ash is much deeper than it appears. Sentinels can attempt a DC 18 Wisdom (Perception) check to spot the ash pit as the expedition approaches. If no one spots the ash pit, 1d4 random characters in the expedition must make a DC 15 Dexterity saving throw or abruptly sink 2d4 feet deep in the ash."
+                "name": "Poço de Cinzas",
+                "description": "<p><strong>Poço de Cinzas:</strong> Camadas profundas de cinzas cedem repentinamente. Antes de tudo, role <strong>1d8 × 10</strong> para determinar a <strong>profundidade do poço</strong> em pés.</p><p><strong>A pé:</strong> <strong>1d4 criaturas aleatórias</strong> caem no poço. Role iniciativa. Na primeira rodada, elas afundam e podem usar a ação para tentar escapar com um <strong>Teste de Salvamento de Força CD 20</strong> ou <strong>Destreza CD 15</strong>. Sucesso: saem imediatamente. Falha: afundam <strong>5 ft</strong>. Se ficarem <strong>submersas</strong>, começam a <strong>sufocar</strong>. Em novas tentativas, a <strong>CD aumenta em +5</strong>. Falha: afundam mais <strong>5 ft</strong>. Sucesso: sobem <strong>5 ft</strong>. Elas podem prender a respiração por <strong>1 + mod de Constituição</strong> rodadas.</p><p><strong>Em veículo:</strong> Se o piloto falhou no <strong>teste de pilotagem</strong> da vigília, o veículo e todos dentro dele caem no poço. Role iniciativa. Criaturas podem sair usando o veículo como apoio, fazendo <strong>Acrobacia ou Atletismo com vantagem</strong>, fazendo o veículo afundar <strong>5 ft</strong>. A cada rodada, o veículo afunda mais <strong>5 ft</strong>, podendo tornar-se <strong>irrecuperável</strong>. Planos criativos podem permitir resgatá-lo, a critério do DM.</p>"
             }
         ],
         "plains_of_fire": [
             {
-                "name": "Sudden Flame",
-                "description": "Spontaneous bursts of flame erupt from the ground without warning. At the start of each watch, each character must make a DC 15 Dexterity saving throw or take 2d6 fire damage."
+                "name": "Calor Extremo",
+                "description": "<p><strong>Calor Extremo:</strong> Este terreno é marcado por poças alquímicas iridescentes que inflamam continuamente, criando focos de incêndio permanentes e ondas de calor intenso que jamais cessam.</p><p><strong>A pé ou em veículo:</strong> Criaturas expostas ao calor extremo devem realizar um <strong>Teste de Salvamento de Constituição CD 20</strong>. Em caso de falha, adquirem <strong>1 nível de exaustão</strong>.</p>"
             }
         ]
     },
